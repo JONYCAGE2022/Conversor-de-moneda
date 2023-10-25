@@ -1,14 +1,11 @@
+import {access} from './accesoApi.mjs';
+
 /* Datos */
 const datos = document.querySelector(".entrada");
 const boton = document.querySelector("#btn");
 
-// Definir la clave de la API, la moneda base y las monedas objetivo
-const apiKey = 'f9a6fe32ea3d1a0cfb9beb0113396267';
-const baseCurrency = 'EUR';
-const targetCurrencies = 'USD';
-
 // Definir la URL de la API con los parámetros correspondientes
-const apiUrl = `http://data.fixer.io/api/latest?access_key=${apiKey}&base=${baseCurrency}&symbols=${targetCurrencies}`;
+const apiUrl = `http://data.fixer.io/api/latest?access_key=${access.apiKey}&base=${access.baseCurrency}&symbols=${access.targetCurrencies}`;
 
 // Crear una función asincrónica que haga la solicitud a la API y muestre el resultado
 // Agregar un evento al botón para hacer la conversión al hacer clic
