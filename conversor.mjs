@@ -26,14 +26,14 @@ boton.addEventListener("click", async function convertirMoneda() {
         const cotizacionEnDolares = data.rates.USD;
 
         // Hacer la conversión de euros a dólares, multiplicando el valor en euros por la cotización en dólares
-        let valorFinal = valorEnEuro * cotizacionEnDolares;
+        let valorFinal = valorEnEuro * cotizacionEnDolares ;
 
         // Redondear el resultado a dos decimales
         valorFinal = valorFinal.toFixed(2);
 
         // Mostrar el resultado en el elemento HTML
         let elemento = document.getElementById("mostrar");
-        elemento.innerHTML = valorFinal;
+        elemento.innerHTML = valorFinal + " dolares";
     } else {
         // Lanzar un error si la respuesta no es exitosa
         throw new Error(`HTTP error: ${response.status}`);
