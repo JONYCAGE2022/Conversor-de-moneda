@@ -5,14 +5,14 @@ const datos = document.querySelector(".entrada");
 const boton = document.querySelector("#btn");
 
 // Definir la URL de la API con los parámetros correspondientes
-const apiUrl = `http://data.fixer.io/api/latest?access_key=${access.apiKey}&base=${access.baseCurrency}&symbols=${access.targetCurrencies}`;
+const apiUrl = `https://api.fxratesapi.com/latest?api_key=${access.apiKey}&base=${access.baseCurrency}&symbols=${access.targetCurrencies}`;
 
 // Crear una función asincrónica que haga la solicitud a la API y muestre el resultado
 // Agregar un evento al botón para hacer la conversión al hacer clic
 boton.addEventListener("click", async function convertirMoneda() {
     // Obtener el valor en euros del input
-    let valorEnEuro = datos.value;
-    valorEnEuro = Number(valorEnEuro);
+    let valorEnPeso = datos.value;
+    valorEnPeso = Number(valorEnPeso);
 
     // Hacer la solicitud a la API usando fetch y esperar la respuesta
     const response = await fetch(apiUrl);
@@ -26,7 +26,7 @@ boton.addEventListener("click", async function convertirMoneda() {
         const cotizacionEnDolares = data.rates.USD;
 
         // Hacer la conversión de euros a dólares, multiplicando el valor en euros por la cotización en dólares
-        let valorFinal = valorEnEuro * cotizacionEnDolares ;
+        let valorFinal = valorEnPeso * cotizacionEnDolares ;
 
         // Redondear el resultado a dos decimales
         valorFinal = valorFinal.toFixed(2);
